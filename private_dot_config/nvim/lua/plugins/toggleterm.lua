@@ -14,8 +14,16 @@ return {
         -- close_on_exit = true, -- ターミナル終了時に閉じる
     },
     keys = {
-        { mode = "n", "<C-\\>", "<cmd>ToggleTerm<CR>", desc = "ToggleTermをトグルする" },
-        -- { mode = "t", "<C-\\>", "<cmd>ToggleTerm<CR>", desc = "ToggleTermをトグルする" },
+        -- ターミナルを開くためのキーマッピング
+        -- 数値を入力してから <C-\> を押すと、その数値分のターミナルを開く
+        {
+            "<C-\\>",
+            function()
+                local count = vim.v.count > 0 and vim.v.count or 1
+                vim.cmd(count .. "ToggleTerm direction=horizontal")
+            end,
+            desc = "Horizontal terminal"
+        },
         { mode = "n", "<leader>lg", function() _G._lazygit_toggle() end, desc = "Lazygitを開く" },
     },
     config = function(_, opts)
