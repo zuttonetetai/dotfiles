@@ -46,3 +46,15 @@ vim.opt.backspace = "indent,eol,start"
 
 -- コマンドライン補完でメニューを表示
 vim.opt.wildmenu = true
+
+-- 折りたたみの設定
+vim.o.foldenable = true
+vim.o.foldmethod = "indent"
+vim.opt.foldcolumn = "1"
+vim.o.foldlevel = 99
+vim.opt.fillchars:append({
+    fold = " ",
+    foldopen = "",
+    foldsep = " ",
+    foldclose = "",
+})

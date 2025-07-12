@@ -18,7 +18,7 @@ return {
                 "pyrefly",
                 "ruff",
                 "rust_analyzer",
-                -- "tsserver", -- TypeScript/JavaScript を使う場合は追加
+                "ts_ls", -- TypeScript/JavaScript を使う場合は追加
             },
             automatic_installation = true,
         },

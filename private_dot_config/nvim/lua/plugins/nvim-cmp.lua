@@ -14,6 +14,8 @@ return {
             "hrsh7th/cmp-buffer",
             -- ファイルパスの補完ソース
             "hrsh7th/cmp-path",
+            -- vimコマンドラインの補完
+            "hrsh7th/cmp-cmdline",
         },
         config = function()
             local cmp = require("cmp")
@@ -78,6 +80,23 @@ return {
                             fallback()
                         end
                     end, { "i" }), -- インサートモードのみで適用
+                }),
+            })
+            cmp.setup.cmdline({ "/", "?" }, {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                    { name = "buffer" },
+                },
+            })
+
+            cmp.setup.cmdline(":", {
+                mapping = cmp.mapping.preset.cmdline({
+                    ["<Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                }),
+                sources = cmp.config.sources({
+                    { name = "path" },
+                }, {
+                    { name = "cmdline" },
                 }),
             })
         end,

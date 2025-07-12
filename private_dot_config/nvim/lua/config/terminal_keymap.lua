@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
 -- <C-w>で使えるウィンドウの管理系をターミナルモードにマップする（macOS対応）
 local terminal_keymaps = {
     -- ノーマルモード並行
-    ['<ESC>'] = '<C-\\><C-n>',
+    ['<C-\\><C-\\>'] = '<C-\\><C-n>',
     -- ウィンドウの作成・削除
     ['<C-W>n'] = '<cmd>new<cr>',
     ['<C-W><C-N>'] = '<cmd>new<cr>',
@@ -35,12 +35,6 @@ local terminal_keymaps = {
     ['<C-W>c'] = '<cmd>close<cr>',
     ['<C-W>o'] = '<cmd>only<cr>',
     ['<C-W><C-O>'] = '<cmd>only<cr>',
-
-    -- ウィンドウ間の移動（矢印キー）
-    -- ['sj'] = '<cmd>wincmd j<cr>',
-    -- ['sk'] = '<cmd>wincmd k<cr>',
-    -- ['sh'] = '<cmd>wincmd h<cr>',
-    -- ['sl'] = '<cmd>wincmd l<cr>',
 
     -- ウィンドウ間の移動（hjkl）
     ['<C-W><C-J>'] = '<cmd>wincmd j<cr>',
