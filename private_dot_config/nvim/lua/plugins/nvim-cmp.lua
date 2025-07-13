@@ -40,6 +40,7 @@ return {
                     { name = "luasnip" },
                     { name = "buffer" },
                     { name = "path" },
+                    { name = 'render-markdown' },
                 }),
                 mapping = cmp.mapping.preset.insert({
                     ["<C-Space>"] = cmp.mapping.complete(),            -- 補完ウィンドウ表示
