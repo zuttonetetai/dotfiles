@@ -13,6 +13,9 @@ vim.opt.smartindent = true
 -- 不可視文字の表示を有効にする
 vim.opt.list = true
 
+-- カーソルラインを表示
+vim.opt.cursorline = true
+
 -- 不可視文字の表示設定
 -- tab: タブを »- で表示
 -- trail: 行末のスペースを - で表示
