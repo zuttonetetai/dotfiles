@@ -1,0 +1,8 @@
+font-family = "RobotoMono Nerd Font"
+font-size = 15
+theme = tokyonight
+
+macos-icon = custom-style
+macos-icon-frame = plastic
+macos-titlebar-style = tabs
+
