@@ -23,30 +23,6 @@ return {
             automatic_installation = true,
         },
     },
-    -- {
-    --     "neovim/nvim-lspconfig",
-    --     event = { "BufReadPre", "BufNewFile" },
-    --     dependencies = {
-    --         "mason-org/mason-lspconfig.nvim",
-    --         "hrsh7th/cmp-nvim-lsp",
-    --     },
-    --     opts = {
-    --         -- LazyVimのservers設定を直接オーバーライド
-    --         servers = {
-    --             -- rust-analyzerの設定を追加すると何故か二重に立ち上がってしまい、うまく反映されなかったため記述しない
-    --
-    --             lua_ls = {
-    --                 settings = {
-    --                     Lua = {
-    --                         diagnostics = {
-    --                             globals = { "vim" },
-    --                         },
-    --                     },
-    --                 },
-    --             },
-    --         },
-    --     },
-    -- },
     -- LSPアタッチ時の追加設定とキーマップ
     {
         "neovim/nvim-lspconfig",
@@ -59,22 +35,14 @@ return {
                 lua_ls = {
                     settings = {
                         Lua = {
-                            runtime = {
-                                -- Lua のバージョンに合わせて変更 (Neovim は通常 LuaJIT を使用)
-                                version = 'LuaJIT',
-                            },
-                            workspace = {
-                                -- Neovim の runtimepath を Lua Language Server のライブラリとして追加
-                                -- これにより、Lua Language Server が Neovim の組み込み関数などを認識できるようになります
-                                library = vim.api.nvim_get_runtime_file("", true),
-                                checkThirdParty = false, -- 必要であれば true に設定
+                            diagnostics = {
+                                globals = { "vim" },
                             },
                         },
                     },
                 },
             },
         },
-
         config = function()
             -- カスタムキーマップとインレイヒント設定
             vim.api.nvim_create_autocmd("LspAttach", {

@@ -14,6 +14,9 @@ vim.keymap.set('n', 'sl', '<C-w>l')
 vim.api.nvim_set_keymap('n', '[b', ':bprevious<CR>', { noremap = true, silent = true, desc = "Go to previous buffer" })
 vim.api.nvim_set_keymap('n', ']b', ':bnext<CR>', { noremap = true, silent = true, desc = "Go to next buffer" })
 
+-- ノーマルモードのままCtrl+Enterで改行する
+vim.api.nvim_set_keymap('n', '<C-CR>', 'i<Return><Esc>', { noremap = true, silent = true })
+
 -- 挿入モードでのキーマッピング
 vim.api.nvim_set_keymap('n', '<C-l>', '$', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-h>', '0', { noremap = true, silent = true })
