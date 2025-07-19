@@ -23,25 +23,35 @@ return {
             automatic_installation = true,
         },
     },
+    vim.lsp.config('lua_ls', {
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { "vim" }
+                }
+            }
+        }
+    }),
     -- LSPアタッチ時の追加設定とキーマップ
     {
         "neovim/nvim-lspconfig",
         event = { "BufReadPre", "BufNewFile" },
         opts = {
             -- LazyVimのservers設定を直接オーバーライド
-            servers = {
-                -- rust-analyzerの設定を追加すると何故か二重に立ち上がってしまい、うまく反映されなかったため記述しない
-
-                lua_ls = {
-                    settings = {
-                        Lua = {
-                            diagnostics = {
-                                globals = { "vim" },
-                            },
-                        },
-                    },
-                },
-            },
+            -- serversが反映されないので上記vim.lsp.configで定義する
+            -- servers = {
+            --     -- rust-analyzerの設定を追加すると何故か二重に立ち上がってしまい、うまく反映されなかったため記述しない
+            --
+            --     lua_ls = {
+            --         settings = {
+            --             Lua = {
+            --                 diagnostics = {
+            --                     globals = { "vim" },
+            --                 },
+            --             },
+            --         },
+            --     },
+            -- },
         },
         config = function()
             -- カスタムキーマップとインレイヒント設定
