@@ -1,6 +1,6 @@
 shell-integration = zsh
 font-family = "RobotoMono Nerd Font"
-font-size = 15
+font-size = 14
 theme = tokyonight
 macos-titlebar-style = tabs
 window-inherit-working-directory = true
@@ -8,4 +8,5 @@ window-new-tab-position = current
 window-width = 150
 window-height = 40
 confirm-close-surface = false
+font-feature = -dlig,-liga,-calt
 
