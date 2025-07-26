@@ -13,6 +13,9 @@ return {
             indent = {
                 enable = true,
                 use_treesitter = true,
+                exclude_filetypes = {
+                    markdown = true,
+                }
             },
         })
     end
