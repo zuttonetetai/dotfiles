@@ -23,6 +23,31 @@ return {
             automatic_installation = true,
         },
     },
+    -- Formatter、Linter、DAP等のツールを管理
+    {
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        dependencies = {
+            "mason-org/mason.nvim",
+        },
+        opts = {
+            ensure_installed = {
+                -- Formatter
+                "stylua",   -- Lua formatter
+                "prettier", -- JS/TS/JSON/CSS formatter
+                "shfmt",    -- Shell script formatter
+
+                -- Linter
+                "eslint_d",   -- JS/TS linter
+                "shellcheck", -- Shell script linter
+
+                -- 他に必要なツールがあれば追加
+                -- "gofumpt",    -- Go formatter
+                -- "yamlfmt",    -- YAML formatter
+            },
+            auto_update = true,
+            run_on_start = true,
+        },
+    },
     vim.lsp.config('lua_ls', {
         settings = {
             Lua = {

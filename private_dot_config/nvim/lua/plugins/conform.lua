@@ -4,7 +4,7 @@ return {
     "stevearc/conform.nvim",
     -- `event` や `cmd` を指定することで、プラグインの読み込みを遅延させ、起動を高速化します
     event = { "BufWritePre" }, -- ファイル保存直前のイベントで読み込む
-    cmd = { "ConformInfo" }, -- コマンド実行時にも読み込む
+    cmd = { "ConformInfo" },   -- コマンド実行時にも読み込む
 
     opts = {
         -- 使用するフォーマッターをファイルタイプごとに指定
@@ -17,6 +17,7 @@ return {
             typescript = { "prettier" },
             javascriptreact = { "prettier" },
             typescriptreact = { "prettier" },
+            json = { "prettier" },
             rust = { "rustfmt" },
         },
 
@@ -31,4 +32,3 @@ return {
         },
     },
 }
-
