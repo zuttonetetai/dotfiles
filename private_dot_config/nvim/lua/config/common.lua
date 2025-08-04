@@ -9,6 +9,7 @@ vim.opt.tabstop = 4
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
+vim.opt.autoread = true
 
 -- 不可視文字の表示を有効にする
 vim.opt.list = true
@@ -56,8 +57,8 @@ vim.o.foldmethod = "indent"
 vim.opt.foldcolumn = "1"
 vim.o.foldlevel = 99
 vim.opt.fillchars:append({
-    fold = " ",
-    foldopen = "",
-    foldsep = " ",
-    foldclose = "",
+	fold = " ",
+	foldopen = "",
+	foldsep = " ",
+	foldclose = "",
 })
