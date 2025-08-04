@@ -10,6 +10,9 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
 vim.opt.autoread = true
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
+vim.opt.swapfile = false
 
 -- 不可視文字の表示を有効にする
 vim.opt.list = true
