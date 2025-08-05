@@ -4,7 +4,7 @@ return {
 	opts = {
 		size = function(term)
 			if term.direction == "vertical" then
-				return 80
+				return math.max(60, math.floor(vim.o.columns * 0.25))
 			end
 			return 20
 		end,
