@@ -12,6 +12,7 @@ return {
 		view = {
 			width = 30,
 			side = "left",
+			adaptive_size = true,
 		},
 		filters = {
 			dotfiles = false, -- 隠しファイルを表示
