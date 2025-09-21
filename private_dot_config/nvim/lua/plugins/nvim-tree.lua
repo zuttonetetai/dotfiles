@@ -16,6 +16,16 @@ return {
 		},
 		filters = {
 			dotfiles = false, -- 隠しファイルを表示
+			git_ignored = false, -- gitで無視されたファイルも表示（必要に応じて）
+		},
+		filesystem_watchers = {
+			enable = true,
+			debounce_delay = 1000,
+		},
+		-- リフレッシュの自動化
+		hijack_directories = {
+			enable = true,
+			auto_open = true,
 		},
 	},
 	keys = {
