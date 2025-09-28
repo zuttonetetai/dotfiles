@@ -2,11 +2,15 @@ shell-integration = zsh
 font-family = "RobotoMono Nerd Font"
 font-size = 14
 theme = tokyonight
-macos-titlebar-style = tabs
+# macos-titlebar-style = tabs
 window-inherit-working-directory = true
 window-new-tab-position = current
 window-width = 150
 window-height = 40
 confirm-close-surface = false
 font-feature = -dlig,-liga,-calt
+quick-terminal-position = top
+quick-terminal-size = 50%, 100%
 
+# keybindings
+keybind = global:ctrl+backslash=toggle_quick_terminal
