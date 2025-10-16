@@ -1,0 +1,106 @@
+[
+    // 右のペインに移動 (s + l)
+    {
+        "key": "s l",
+        "command": "workbench.action.focusNextGroup",
+        "when": "vim.mode == 'Normal' && editorTextFocus"
+    },
+    // 左のペインに移動 (s + h)
+    {
+        "key": "s h",
+        "command": "workbench.action.focusPreviousGroup",
+        "when": "vim.mode == 'Normal' && editorTextFocus"
+    },
+    // カーソル行の左端に移動 (Command + h)
+    {
+        "key": "ctrl+h",
+        "command": "cursorLineStart",
+        "when": "vim.mode == 'Normal' && editorTextFocus"
+    },
+    // カーソル行の右端に移動 (Command + l)
+    {
+        "key": "ctrl+l",
+        "command": "cursorLineEnd",
+        "when": "vim.mode == 'Normal' && editorTextFocus"
+    },
+    // Emacs: カーソルを左へ移動 (Ctrl + b)
+    {
+        "key": "ctrl+b",
+        "command": "cursorLeft",
+        "when": "vim.mode == 'Insert' && editorTextFocus"
+    },
+    // Emacs: カーソルを右へ移動 (Ctrl + f)
+    {
+        "key": "ctrl+f",
+        "command": "cursorRight",
+        "when": "vim.mode == 'Insert' && editorTextFocus"
+    },
+    // Emacs: カーソルを上へ移動 (Ctrl + p)
+    {
+        "key": "ctrl+p",
+        "command": "cursorUp",
+        "when": "vim.mode == 'Insert' && editorTextFocus"
+    },
+    // Emacs: カーソルを下へ移動 (Ctrl + n)
+    {
+        "key": "ctrl+n",
+        "command": "cursorDown",
+        "when": "vim.mode == 'Insert' && editorTextFocus"
+    },
+    // Emacs: カーソルを行頭へ移動 (Ctrl + a)
+    {
+        "key": "ctrl+a",
+        "command": "cursorLineStart",
+        "when": "vim.mode == 'Insert' && editorTextFocus"
+    },
+    // Emacs: カーソルを行末へ移動 (Ctrl + e)
+    {
+        "key": "ctrl+e",
+        "command": "cursorLineEnd",
+        "when": "vim.mode == 'Insert' && editorTextFocus"
+    },
+    // Emacs: カーソルの前の文字を削除 (Ctrl + h)
+    {
+        "key": "ctrl+h",
+        "command": "deleteLeft",
+        "when": "vim.mode == 'Insert' && editorTextFocus"
+    },
+    // Emacs: カーソルの次の文字を削除 (Ctrl + d)
+    {
+        "key": "ctrl+d",
+        "command": "deleteRight",
+        "when": "vim.mode == 'Insert' && editorTextFocus"
+    },
+    // Emacs: カーソル位置から行末までを削除 (Ctrl + k)
+    {
+        "key": "ctrl+k",
+        "command": "deleteAllRight", // コマンド名を変更
+        "when": "vim.mode == 'Insert' && editorTextFocus"
+    },
+    // Emacs: 変換候補を下へ移動 (Ctrl + n)
+    {
+        "key": "ctrl+n",
+        "command": "selectNextSuggestion",
+        // 変換候補が表示されており、かつVimのインサートモードである場合にのみ適用
+        "when": "suggestWidgetVisible && vim.mode == 'Insert'"
+    },
+    // Emacs: 変換候補を上へ移動 (Ctrl + p)
+    {
+        "key": "ctrl+p",
+        "command": "selectPrevSuggestion",
+        // 変換候補が表示されており、かつVimのインサートモードである場合にのみ適用
+        "when": "suggestWidgetVisible && vim.mode == 'Insert'"
+    },
+    // Visualモード: インデントを増やす (Tab)
+    {
+        "key": "tab",
+        "command": "editor.action.indentLines",
+        "when": "editorTextFocus && vim.mode == 'Visual'"
+    },
+    // Visualモード: インデントを減らす (Shift + Tab)
+    {
+        "key": "shift+tab",
+        "command": "editor.action.outdentLines",
+        "when": "editorTextFocus && vim.mode == 'Visual'"
+    }
+]
