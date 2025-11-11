@@ -3,6 +3,15 @@ vim.opt.clipboard:append("unnamed")
 
 vim.cmd.colorscheme("tokyonight-night")
 
+-- :W を :w と同じ動作にする
+vim.cmd("command W w")
+-- :Q を :q と同じ動作にする
+vim.cmd("command Q q")
+-- :WQ を :wq と同じ動作にする
+vim.cmd("command WQ wq")
+-- :Wq を :wq と同じ動作にする
+vim.cmd("command Wq wq")
+
 -- 行番号を表示
 vim.opt.number = true
 vim.opt.tabstop = 4
