@@ -1,6 +1,28 @@
+-- 画像プレビューの依存関係のためimagemagickをインストールすること
+-- for mac: `brew install imagemagick`
 return {
 	"nvim-tree/nvim-tree.lua",
-	config = true,
+	dependencies = {
+		{
+			"b0o/nvim-tree-preview.lua",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				"3rd/image.nvim", -- Optional, for previewing images
+			},
+		},
+	},
+	config = function(_, opts)
+		-- nvim-treeのセットアップ
+		require("nvim-tree").setup(opts)
+
+		-- 依存プラグインのセットアップ
+		require("image").setup()
+		require("nvim-tree-preview").setup({
+			image_preview = {
+				enable = true,
+			},
+		})
+	end,
 	opts = {
 		update_focused_file = {
 			enable = true,
@@ -27,6 +49,42 @@ return {
 			enable = true,
 			auto_open = true,
 		},
+		on_attach = function(bufnr)
+			local api = require("nvim-tree.api")
+
+			api.config.mappings.default_on_attach(bufnr)
+
+			local function opts(desc)
+				return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+			end
+
+			local preview = require("nvim-tree-preview")
+
+			vim.keymap.set("n", "P", preview.watch, opts("Preview (Watch)"))
+			vim.keymap.set("n", "<Esc>", preview.unwatch, opts("Close Preview/Unwatch"))
+			vim.keymap.set("n", "<C-f>", function()
+				return preview.scroll(4)
+			end, opts("Scroll Down"))
+			vim.keymap.set("n", "<C-b>", function()
+				return preview.scroll(-4)
+			end, opts("Scroll Up"))
+
+			-- 自動プレビューを有効にする
+			vim.api.nvim_create_autocmd("CursorMoved", {
+				buffer = bufnr,
+				callback = function()
+					local ok, node = pcall(api.tree.get_node_under_cursor)
+					if ok and node then
+						-- ディレクトリを選択時はプレビュー無効
+						if node.type == "directory" then
+							preview.unwatch()
+						else
+							preview.node_under_cursor()
+						end
+					end
+				end,
+			})
+		end,
 	},
 	keys = {
 		{ mode = "n", "<C-n>", "<cmd>NvimTreeToggle<CR>", desc = "NvimTreeをトグルする" },
