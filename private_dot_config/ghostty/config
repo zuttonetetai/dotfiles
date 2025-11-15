@@ -13,4 +13,4 @@ quick-terminal-position = top
 quick-terminal-size = 50%, 100%
 
 # keybindings
-keybind = global:ctrl+backslash=toggle_quick_terminal
+keybind = global:ctrl+q=toggle_quick_terminal
