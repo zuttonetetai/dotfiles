@@ -12,6 +12,12 @@ vim.cmd("command WQ wq")
 -- :Wq を :wq と同じ動作にする
 vim.cmd("command Wq wq")
 
+-- デフォルトで折り返しを無効化
+vim.opt.wrap = false
+
+-- 横スクロールを快適にするための追加設定
+vim.opt.sidescrolloff = 8
+
 -- 行番号を表示
 vim.opt.number = true
 vim.opt.tabstop = 4
