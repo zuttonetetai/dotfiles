@@ -6,13 +6,13 @@ return {
 		require("hlchunk").setup({
 			chunk = {
 				enable = true,
-				-- use_treesitter = true,
+				use_treesitter = true,
 				-- use_lsp = true,
 				-- use_git = true,
 			},
 			indent = {
 				enable = true,
-				use_treesitter = true,
+				-- use_treesitter = true,
 				exclude_filetypes = {
 					markdown = true,
 				},

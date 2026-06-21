@@ -16,6 +16,11 @@ return {
 			"hrsh7th/cmp-path",
 			-- vimコマンドラインの補完
 			"hrsh7th/cmp-cmdline",
+
+			-- Markdown補完
+			{
+				"MeanderingProgrammer/render-markdown.nvim",
+			},
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -23,7 +28,7 @@ return {
 
 			cmp.setup({
 				performance = {
-					debounce = 2000,
+					debounce = 60, -- 補完の表示遅延を改善
 					throttle = 50,
 				},
 				snippet = {
@@ -35,7 +40,6 @@ return {
 					completeopt = "menu,menuone,noinsert",
 				},
 				sources = cmp.config.sources({
-					{ name = "copilot" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "buffer" },

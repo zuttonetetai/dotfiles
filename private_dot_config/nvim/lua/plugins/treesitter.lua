@@ -1,8 +1,5 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter-refactor",
-	},
 	branch = "master",
 	lazy = false,
 	build = ":TSUpdate",
@@ -27,13 +24,6 @@ return {
 		highlight = {
 			enable = true,
 			additional_vim_regex_highlighting = false,
-		},
-		refactor = {
-			highlight_definitions = {
-				enable = true,
-				-- Set to false if you have an `updatetime` of ~100.
-				clear_on_cursor_move = true,
-			},
 		},
 	},
 	config = function(_, opts)

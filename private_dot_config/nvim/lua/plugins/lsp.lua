@@ -144,6 +144,22 @@ return {
 					if client.supports_method("textDocument/inlayHint") then
 						vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 					end
+
+					-- カーソル下の単語とその参照箇所をハイライト（LSPによる代替）
+					if client.supports_method("textDocument/documentHighlight") then
+						local highlight_group = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = false })
+						vim.api.nvim_clear_autocmds({ buffer = bufnr, group = highlight_group })
+						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+							group = highlight_group,
+							buffer = bufnr,
+							callback = vim.lsp.buf.document_highlight,
+						})
+						vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+							group = highlight_group,
+							buffer = bufnr,
+							callback = vim.lsp.buf.clear_references,
+						})
+					end
 				end,
 			})
 		end,

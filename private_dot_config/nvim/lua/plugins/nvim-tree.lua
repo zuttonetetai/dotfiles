@@ -21,6 +21,30 @@ return {
 			image_preview = {
 				enable = true,
 			},
+			win_position = {
+				row = function(tree_win, size)
+					local cursor_row = vim.api.nvim_win_get_cursor(tree_win)[1] - 1
+					local win_info = vim.fn.getwininfo(tree_win)[1]
+					local topline = win_info.topline - 1
+					local relative_cursor = cursor_row - topline
+					local win_pos = vim.api.nvim_win_get_position(tree_win)
+					local screen_row = win_pos[1] + relative_cursor
+					local editor_height = vim.api.nvim_get_option_value("lines", {}) - 1
+					local row = relative_cursor
+					if screen_row + size.height > editor_height then
+						row = relative_cursor - ((screen_row + size.height) - editor_height)
+					end
+					return row
+				end,
+				col = function(tree_win, size)
+					local view_side = "left"
+					local ok, nvim_tree_config = pcall(require, "nvim-tree.config")
+					if ok and nvim_tree_config.g and nvim_tree_config.g.view then
+						view_side = nvim_tree_config.g.view.side
+					end
+					return (view_side == "left" and vim.fn.winwidth(tree_win) + 1 or -size.width - 3)
+				end,
+			},
 		})
 	end,
 	opts = {
