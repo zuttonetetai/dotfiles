@@ -1,0 +1,28 @@
+{
+  "ghostty-notify": {
+    "PreToolUse": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.gemini/config/terminal-notifier-for-agy.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.gemini/config/terminal-notifier-for-agy.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
