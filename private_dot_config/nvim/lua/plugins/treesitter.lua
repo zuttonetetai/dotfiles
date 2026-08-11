@@ -4,20 +4,22 @@ return {
 	lazy = false,
 	build = ":TSUpdate",
 	config = function()
-		require("nvim-treesitter").install({
-			"bash",
-			"go",
-			"java",
-			"javascript",
-			"json",
-			"lua",
-			"markdown",
-			"query",
-			"python",
-			"typescript",
-			"toml",
-			"rust",
-			"yaml",
+		require("nvim-treesitter.configs").setup({
+			ensure_installed = {
+				"bash",
+				"go",
+				"java",
+				"javascript",
+				"json",
+				"lua",
+				"markdown",
+				"query",
+				"python",
+				"typescript",
+				"toml",
+				"rust",
+				"yaml",
+			},
 		})
 
 		-- pythonのdocstringをコメントアウトの色に変更する
