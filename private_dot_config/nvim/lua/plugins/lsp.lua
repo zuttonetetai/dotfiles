@@ -58,6 +58,13 @@ return {
 			},
 		},
 	}),
+	vim.lsp.config("jdtls", {
+		cmd = {
+			vim.fn.expand("~/.local/share/nvim/mason/bin/jdtls"),
+			"--java-executable",
+			vim.fn.expand("~/.local/share/mise/installs/java/26.0.2/bin/java"),
+		},
+	}),
 	-- LSPアタッチ時の追加設定とキーマップ
 	{
 		"neovim/nvim-lspconfig",
