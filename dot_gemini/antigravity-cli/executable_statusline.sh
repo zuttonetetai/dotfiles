@@ -73,7 +73,7 @@ GREEN="\033[32m"
 YELLOW="\033[33m"
 
 # 一行目: カレントディレクトリ
-echo -e "${CYAN}📁 Dir:${RESET} ${cwd}"
+echo -e "${CYAN}Dir:${RESET} ${cwd}"
 
 # 二行目: モデル名 | コンテキスト利用率 | 5時間リミット利用率 (解除までの時間)
-echo -e "${BOLD}🤖 Model:${RESET} ${BLUE}${model}${RESET} | ${BOLD}🧠 Context:${RESET} ${GREEN}${context_pct}%${RESET} | ${BOLD}💳 Cost (5h):${RESET} ${YELLOW}${cost_used_pct}%${time_str}${RESET}"
+echo -e "${BOLD}Model:${RESET} ${BLUE}${model}${RESET} | ${BOLD}Context:${RESET} ${GREEN}${context_pct}%${RESET} | ${BOLD}Cost (5h):${RESET} ${YELLOW}${cost_used_pct}%${time_str}${RESET}"

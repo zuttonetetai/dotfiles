@@ -9,6 +9,7 @@ auto_switch = false
 [ui]
 pane_gaps = false
 show_agent_labels_on_pane_borders = true
+sidebar_start_collapsed = true
 
 [ui.toast]
 delivery = "terminal"
